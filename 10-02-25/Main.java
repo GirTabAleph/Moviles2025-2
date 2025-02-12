@@ -17,7 +17,7 @@ public class Main{
 			in.nextLine();
 
 			Operando operando = null;
-			System.out.println("Ingrese la operación: MULT, DIV, SUMA, REST");
+			System.out.println("Ingrese la operación: MULT, DIV, SUMA, RESTA");
 			String operandoStr = in.nextLine().toUpperCase();
 			
 			try{
