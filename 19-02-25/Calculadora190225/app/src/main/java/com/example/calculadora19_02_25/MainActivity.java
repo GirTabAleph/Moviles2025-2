@@ -117,12 +117,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+      cadena = ("");
+
       resultado =  Fibonacci.fibonacciRecursivo(numeroClick);
       numeroClick++;
 
       // Actualizar el TextView con el nuevo resultado
       cadena += "Resultado de la serie Fibonacci en este click: " + resultado + "\n";
       txvMiTexto.setText(cadena);
+
+      //Limpiar la cadena.
+      cadena = ("");
 
     }
 

@@ -1,5 +1,0 @@
-Este es un archivo de prueba para ver si ya puedo hacer commits desde CLI.
-
-<|°_°|>
-
-Aún otra prueba
