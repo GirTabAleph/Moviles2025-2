@@ -2,7 +2,6 @@ package com.example.pryecto260225;
 
 public interface ICalculadoraUI {
 
-    CalculadoraMemoria memoria = null;
 
     //Limpieza de pantalla.
     void clear();
@@ -14,5 +13,7 @@ public interface ICalculadoraUI {
     String addNumber(String numero);
 
     void addOperation(Operacion operacion);
+
+    void calculate();
 
 }

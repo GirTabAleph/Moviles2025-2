@@ -12,7 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    CalculadoraUI ui;
+    ICalculadoraUI ui;
+    ICalculadora calculadora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        ui = new CalculadoraUI(this);
+        ui = new CalculadoraUI(this, new Calculadora() );
+        calculadora = new Calculadora();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+
     }
 }

@@ -7,6 +7,11 @@ import android.widget.TextView;
 
 public class CalculadoraUI implements ICalculadoraUI{
 
+    CalculadoraOnResult calculadoraResult = null;
+
+
+    ICalculadora logica;
+
     ICalculadoraMemoria memoria = new CalculadoraMemoria();
 
     //Por si acaso.
@@ -28,7 +33,9 @@ public class CalculadoraUI implements ICalculadoraUI{
     Button btnUno, btnDos, btnTres, btnCuatro,
     btnCinco, btnSeis, btnSiete, btnOcho, btnNueve, btnCero;
 
-    public CalculadoraUI(Activity activity){
+    public CalculadoraUI(Activity activity, ICalculadora logica){
+
+        this.logica = logica;
 
         context = activity.getApplicationContext();
 
@@ -103,6 +110,12 @@ public class CalculadoraUI implements ICalculadoraUI{
             addNumber("9");
         });
 
+        setOnResult((x, y, operacion) -> {
+
+            BigDecimal result = logica.c
+
+        }
+
     }
 
     @Override
@@ -119,13 +132,20 @@ public class CalculadoraUI implements ICalculadoraUI{
     @Override
     public String addNumber(String numero) {
         vistaResultados.setText(numero);
-        return memoria.concat(numero);
+        String newVal = memoria.concat(numero);
+        return newVal;
     }
 
     @Override
     public void addOperation(Operacion operacion) {
         vistaResultados.setText(Operacion.convert(operacion));
         memoria.concat(operacion);
+    }
+
+    public void setOnResult(CalculadoraOnResult result){
+
+        this.calculadoraResult = result;
+
     }
 
 }
