@@ -1,4 +1,4 @@
 package com.example.contactos;
 
-public class Contact {
+public class ContactStore {
 }

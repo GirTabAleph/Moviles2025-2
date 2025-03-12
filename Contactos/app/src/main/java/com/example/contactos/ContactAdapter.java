@@ -18,7 +18,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.txvName = itemView.findViewById(R.id.txvName);
-            this.txvPhone = itemView.findViewById(R.id.txvNumber);
+            this.txvPhone = itemView.findViewById(R.id.txvPhone);
         }
 
         public void setName(String txvName){
@@ -62,3 +62,4 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         return this.contactList.size();
     }
 }
+
