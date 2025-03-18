@@ -1,5 +1,6 @@
 package com.example.contactos;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,13 +8,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder>{
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txvName, txvPhone;
+        TextView txvName;
+
+        TextView txvPhone;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -21,21 +25,19 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             this.txvPhone = itemView.findViewById(R.id.txvPhone);
         }
 
-        public void setName(String txvName){
+        public void setName(String txvName) {
             this.txvName.setText(txvName);
         }
 
-        public void setPhone(String txvPhone){
+        public void setPhone(String txvPhone) {
             this.txvPhone.setText(txvPhone);
         }
-
     }
 
+    ContactStore dataSource;
 
-    List<Contact> contactList;
-
-    public ContactAdapter(List<Contact> contactList){
-
+    public ContactAdapter() {
+        this.dataSource = new ContactStore();
     }
 
     @NonNull
@@ -43,23 +45,23 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_contact, parent, false);
-
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        Contact contacto = contactList.get(position);
-
-        holder.setName(contacto.getName());
-        holder.setPhone(contacto.getPhone());
-
+        Contact contact = dataSource.get(position);
+        holder.setName(contact.getName());
+        holder.setPhone(contact.getPhone());
+        holder.itemView.setOnClickListener(v -> {
+            Intent i = new Intent(v.getContext(), DetailActivity.class);
+            i.putExtra(BundleConstants.CONTACT_PHONE, contact.getPhone());
+            v.getContext().startActivity(i);
+        });
     }
 
     @Override
     public int getItemCount() {
-        return this.contactList.size();
+        return this.dataSource.size();
     }
 }
-
