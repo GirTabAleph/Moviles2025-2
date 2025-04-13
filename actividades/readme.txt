@@ -1,3 +1,0 @@
-En este directorio se encuentran las actividades en pdf y un subdirectorio con copias tanto de los archivos xml como del código fuente para la impresión de hello world en el logcat tras ejecutarse la aplicación. 
-
-Estas copias bajo ninguna NO DEBEN EJECUTARSE, pues la configuración original parte deMoviles2025-2\12-02-25\app\src\main\java\com\example\proyecto12_02_25 y cosas inesperadas podrían pasar.
