@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            Log.d("Elfo actual", "Elfo " + (i + 1) + " tiene " + suma + " calorías.");
+            String elfoActual = "Elfo " + (i + 1) + " tiene " + suma + " calorías.";
+            Log.i("Elfo actual", elfoActual);
 
             if (suma > maxCalorias) {
 
@@ -85,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        String mensaje = "El elfo con más calorías es el número " + elfoMax + ", con " + maxCalorias + " calorías.";
+        String mensaje = "El elfo con más calorías es el número " + elfoMax + ", con " + maxCalorias
+                + " calorías.";
 
         Log.i("Resultado", mensaje);
 
