@@ -1,7 +1,5 @@
 package com.example.m5_02;
 
-import static android.content.ContentValues.TAG;
-
 import android.os.Bundle;
 import android.util.Log;
 
