@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">m6-01</string>
+    <string name="pasos">Pasos: %1$d</string>
+    <string name="colisiones">Colisiones: %1$d</string>
+</resources>
