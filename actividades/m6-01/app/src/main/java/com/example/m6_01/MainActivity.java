@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
             detectCollisions(newAirplanes);
             markBorderAirplanes(newAirplanes);
             if (historial == null) historial = new java.util.Stack<>();
-            historial.push(new ArrayList<>(vistaAeropuerto.getAirplanes()));
-            vistaAeropuerto.setAirplanes(newAirplanes);
+            historial.push(new ArrayList<>(vistaAeropuerto.getAviones()));
+            vistaAeropuerto.setAviones(newAirplanes);
             pasos++;
             updateCounters();
             vistaAeropuerto.invalidate();
@@ -51,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean hasCollidedAirplanes() {
-        for (Avion avion : vistaAeropuerto.getAirplanes()) {
+        for (Avion avion : vistaAeropuerto.getAviones()) {
             if (avion.isCollided()) return true;
         }
         return false;
     }
 
     private boolean hasBorderAirplanes() {
-        for (Avion avion : vistaAeropuerto.getAirplanes()) {
+        for (Avion avion : vistaAeropuerto.getAviones()) {
             if (avion.isCollided() && avion.isAtBorder(
                     vistaAeropuerto.getColumnas(), vistaAeropuerto.getFilas())) return true;
         }
@@ -66,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void removeCollidedAndBorderAirplanes() {
-        List<Avion> airplanes = vistaAeropuerto.getAirplanes();
+        List<Avion> airplanes = vistaAeropuerto.getAviones();
         airplanes.removeIf(Avion::isCollided);
-        vistaAeropuerto.setAirplanes(airplanes);
+        vistaAeropuerto.setAviones(airplanes);
         vistaAeropuerto.invalidate();
     }
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         int columns = vistaAeropuerto.getColumnas();
         int rows = vistaAeropuerto.getFilas();
 
-        for (Avion original : vistaAeropuerto.getAirplanes()) {
+        for (Avion original : vistaAeropuerto.getAviones()) {
 
             Avion copia = new Avion(original.getPosX(), original.getPosY(), original.getDirection());
             copia.mover(columns, rows);
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (historial != null && !historial.isEmpty()) {
 
-            vistaAeropuerto.setAirplanes(historial.pop());
+            vistaAeropuerto.setAviones(historial.pop());
             pasos--;
             updateCounters();
             vistaAeropuerto.invalidate();

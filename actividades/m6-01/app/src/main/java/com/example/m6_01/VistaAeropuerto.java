@@ -46,11 +46,11 @@ public class VistaAeropuerto extends View {
 
     }
 
-    public List<Avion> getAirplanes() {
+    public List<Avion> getAviones() {
         return aviones;
     }
 
-    public void setAirplanes(List<Avion> airplanes) {
+    public void setAviones(List<Avion> airplanes) {
 
         if (airplanes == null) {
 
